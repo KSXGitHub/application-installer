@@ -2,18 +2,11 @@
   "name": "jest.tool",
   "version": "0.0.0",
   "private": true,
-  "license": "MIT",
-  "homepage": "https://github.com/KSXGitHub/application-installer.git#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/KSXGitHub/application-installer.git.git"
-  },
-  "bugs": {
-    "url": "https://github.com/KSXGitHub/application-installer.git/issues"
-  },
   "main": "index.js",
   "bin": "bin.js",
   "dependencies": {
+    "fast-deep-equal": "^2.0.1",
+    "create-jest-runner": "^0.4.0",
     "jest": "^23.5.0",
     "babel-jest": "^23.4.2",
     "yaml-jest": "^1.0.5",
