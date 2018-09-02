@@ -1,5 +1,7 @@
 const path = require('path')
+const fs = require('fs')
 const deepEqual = require('fast-deep-equal')
+const semver = require('semver')
 const runner = require('create-jest-runner')
 const places = require('places.tool')
 const globalManifestPath = path.resolve(places.project, 'package.json')
@@ -13,6 +15,35 @@ function main ({ testPath }) {
   const containerBaseName = path.basename(container)
   const manifest = require(resolvedPath)
   const matchingKeys = ['license', 'author', 'homepage', 'repository', 'bugs']
+  const rule = (fn, msg) => () => fn() && reasons.push(msg)
+  const mustHaveName = rule(() => !manifest.name, 'Missing field "name"')
+  const mustNotHaveName = rule(() => 'name' in manifest, 'Field "name" is not necessary')
+  const mustHaveVersion = rule(() => !manifest.version, 'Missing field "version"')
+  const mustNotHaveVersion = rule(() => 'version' in manifest, 'Field "version" is not necessary')
+  const mustBePrivate = rule(() => !manifest.private, 'Must have field "private" set to true')
+  const mustBePublic = rule(() => 'private' in manifest, 'Must not have field "private"')
+
+  const checkDependency = field => {
+    const dependencies = manifest[field]
+    if (!dependencies) return
+
+    for (const [name, range] of Object.entries(dependencies)) {
+      const depManifestPath = path.resolve(container, 'node_modules', name, 'package.json')
+
+      if (!fs.existsSync(depManifestPath)) {
+        reasons.push(`Dependency ${name} (${field}) is not installed`)
+        continue
+      }
+
+      const { name: actualName, version } = require(depManifestPath)
+
+      if (actualName !== name || !semver.satisfies(version, range)) {
+        reasons.push(
+          `Expected ${name}@${range} (${field}) but received ${actualName}@${version} (node_modules)`
+        )
+      }
+    }
+  }
 
   const getResult = () => reasons.length
     ? runner.fail({
@@ -31,13 +62,8 @@ function main ({ testPath }) {
       }
     })
 
-  const rule = (fn, msg) => () => fn(manifest) && reasons.push(msg)
-  const mustHaveName = rule(() => !manifest.name, 'Missing field "name"')
-  const mustNotHaveName = rule(() => 'name' in manifest, 'Field "name" is not necessary')
-  const mustHaveVersion = rule(() => !manifest.version, 'Missing field "version"')
-  const mustNotHaveVersion = rule(() => 'version' in manifest, 'Field "version" is not necessary')
-  const mustBePrivate = rule(() => !manifest.private, 'Must have field "private" set to true')
-  const mustBePublic = rule(() => 'private' in manifest, 'Must not have field "private"')
+  checkDependency('dependencies')
+  checkDependency('devDependencies')
 
   if (resolvedPath === globalManifestPath) {
     mustBePrivate()
