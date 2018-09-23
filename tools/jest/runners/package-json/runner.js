@@ -3,7 +3,9 @@ const fs = require('fs')
 const deepEqual = require('fast-deep-equal')
 const semver = require('semver')
 const runner = require('create-jest-runner')
-const places = require('places.tool')
+const depRange = require('parse-dependency-range')
+const { unwrap } = require('convenient-typescript-utilities').func
+const places = require('@tools/places')
 const globalManifestPath = path.resolve(places.project, 'package.json')
 const globalManifest = require(globalManifestPath)
 
@@ -15,7 +17,8 @@ function main ({ testPath }) {
   const containerBaseName = path.basename(container)
   const manifest = require(resolvedPath)
   const matchingKeys = ['license', 'author', 'homepage', 'repository', 'bugs']
-  const rule = (fn, msg) => () => fn() && reasons.push(msg)
+  const pushif = (fn, msg) => unwrap(fn) && reasons.push(unwrap(msg))
+  const rule = (fn, msg) => () => pushif(fn, msg)
   const mustHaveName = rule(() => !manifest.name, 'Missing field "name"')
   const mustNotHaveName = rule(() => 'name' in manifest, 'Field "name" is not necessary')
   const mustHaveVersion = rule(() => !manifest.version, 'Missing field "version"')
@@ -23,9 +26,41 @@ function main ({ testPath }) {
   const mustBePrivate = rule(() => !manifest.private, 'Must have field "private" set to true')
   const mustBePublic = rule(() => 'private' in manifest, 'Must not have field "private"')
 
+  const isPrivateDependency = name => {
+    const dependencyManifestPath = path.resolve(container, 'node_modules', name, 'package.json')
+    const dependencyManifest = require(dependencyManifestPath)
+    return dependencyManifest.private
+  }
+
+  const createDependencyTreater = privateDependant => privateDependant
+    ? {
+      local () {},
+      semver: {
+        ifPrivate (name) {
+          if (isPrivateDependency(name)) {
+            reasons.push(`Private dependencies should use "file:" protocol: ${name}`)
+          }
+        }
+      }
+    }
+    : {
+      local (name) {
+        reasons.push(`Local dependencies should not be listed in "dependencies": ${name}`)
+      },
+      semver: {
+        ifPrivate (name) {
+          if (isPrivateDependency(name)) {
+            reasons.push(`Public package should not use private dependencies: ${name}`)
+          }
+        }
+      }
+    }
+
   const checkDependency = field => {
     const dependencies = manifest[field]
     if (!dependencies) return
+
+    const treatDependency = createDependencyTreater(manifest.private)
 
     for (const [name, range] of Object.entries(dependencies)) {
       const depManifestPath = path.resolve(container, 'node_modules', name, 'package.json')
@@ -36,11 +71,72 @@ function main ({ testPath }) {
       }
 
       const { name: actualName, version } = require(depManifestPath)
+      const parsedVersion = depRange.parse(range)
 
-      if (actualName !== name || !semver.satisfies(version, range)) {
-        reasons.push(
-          `Expected ${name}@${range} (${field}) but received ${actualName}@${version} (node_modules)`
-        )
+      switch (parsedVersion.type) {
+        case depRange.Type.Semver: {
+          treatDependency.semver.ifPrivate(name)
+
+          {
+            const condition =
+              actualName !== name || !semver.satisfies(version, range)
+
+            const message = () =>
+              `Expected ${name}@${range} (${field}) but received ${actualName}@${version} (node_modules)`
+
+            pushif(condition, message)
+          }
+          break
+        }
+
+        case depRange.Type.Local: {
+          treatDependency.local(name)
+
+          {
+            const expected = path.resolve(container, parsedVersion.path)
+            const received = fs.realpathSync(path.resolve(container, 'node_modules', name))
+            const condition = expected !== received
+
+            const message = () =>
+              `Expected ${name} ("${range}") to be at "${expected}" but received "${received}" instead`
+
+            pushif(condition, message)
+          }
+
+          {
+            const expected = depRange.LocalUrl.Protocol.File
+            const received = parsedVersion.protocol
+            const condition = expected !== received
+
+            const message = () =>
+              `Expected "${expected}" as protocol but received "${received}" instead`
+
+            pushif(condition, message)
+          }
+
+          break
+        }
+
+        case depRange.Type.Git: {
+          const condition =
+            parsedVersion.url.protocol === depRange.GitUrl.Protocol.Local
+
+          const message =
+            'Do not use "git+file:" protocol to link local package, use "file:" instead'
+
+          pushif(condition, message)
+          break
+        }
+
+        case depRange.Type.Latest: {
+          reasons.push('Do not use "latest"')
+          break
+        }
+
+        case depRange.Type.Unknown: {
+          reasons.push(`SyntaxError: Unrecognizable syntax: ${JSON.stringify(range)}`)
+          break
+        }
       }
     }
   }
@@ -127,7 +223,7 @@ function main ({ testPath }) {
   if (resolvedPath.startsWith(places.tools)) {
     mustHaveName()
 
-    const expectedName = containerBaseName + '.tool'
+    const expectedName = `@tools/${containerBaseName}`
     if (manifest.name !== expectedName) {
       reasons.push(
         `Expected package's name to be "${expectedName}" but received "${manifest.name}" instead`

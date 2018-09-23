@@ -2,19 +2,21 @@
   "private": true,
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/KSXGitHub/application-installer.git#readme",
+  "homepage": "https://github.com/nodejs-monorepo-templates/typescript-monorepo.git#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KSXGitHub/application-installer.git.git"
+    "url": "git+https://github.com/nodejs-monorepo-templates/typescript-monorepo.git.git"
   },
   "bugs": {
-    "url": "https://github.com/KSXGitHub/application-installer.git/issues"
+    "url": "https://github.com/nodejs-monorepo-templates/typescript-monorepo.git/issues"
   },
   "devDependencies": {
     "@types/jest": "^23.3.1",
     "@types/node": "^10.9.4"
   },
   "scripts": {
+    "tslint": "bash scripts/tslint.sh",
+    "tslint:fix": "bash scripts/tslint.sh --fix",
     "test": "bash scripts/test.sh",
     "build": "bash scripts/build.sh",
     "clean-typescript-build": "node tools/clean-typescript-build/bin.js"
@@ -24,5 +26,8 @@
       "jest": true,
       "node": true
     }
+  },
+  "engines": {
+    "pnpm": ">= 2.16.0"
   }
 }
