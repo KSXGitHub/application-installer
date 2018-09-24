@@ -1,0 +1,72 @@
+dependencies:
+  '@types/fs-extra': 5.0.4
+  '@types/node': 10.10.3
+  fs-extra: 7.0.0
+  tslib: 1.9.3
+  unique-temp-path: 0.1.1
+packages:
+  /@types/fs-extra/5.0.4:
+    dependencies:
+      '@types/node': 10.10.1
+    dev: false
+    resolution:
+      integrity: sha512-DsknoBvD8s+RFfSGjmERJ7ZOP1HI0UZRA3FSI+Zakhrc/Gy26YQsLI+m5V5DHxroHRJqCDLKJp7Hixn8zyaF7g==
+  /@types/node/10.10.1:
+    dev: false
+    resolution:
+      integrity: sha512-nzsx28VwfaIykfzMAG9TB3jxF5Nn+1/WMKnmVZc8TsB+LMIVvwUscVn7PAq+LFaY5ng5u4jp5mRROSswo76PPA==
+  /@types/node/10.10.3:
+    dev: false
+    resolution:
+      integrity: sha512-dWk7F3b0m6uDLHero7tsnpAi9r2RGPQHGbb0/VCv7DPJRMFtk3RonY1/29vfJKnheRMBa7+uF+vunlg/mBGlxg==
+  /fs-extra/7.0.0:
+    dependencies:
+      graceful-fs: 4.1.11
+      jsonfile: 4.0.0
+      universalify: 0.1.2
+    dev: false
+    engines:
+      node: '>=6 <7 || >=8'
+    resolution:
+      integrity: sha512-EglNDLRpmaTWiD/qraZn6HREAEAHJcJOmxNEYwq6xeMKnVMAy3GUcFB+wXt2C6k4CNvB/mP1y/U3dzvKKj5OtQ==
+  /graceful-fs/4.1.11:
+    dev: false
+    engines:
+      node: '>=0.4.0'
+    resolution:
+      integrity: sha1-Dovf5NHduIVNZOBOp8AOKgJuVlg=
+  /jsonfile/4.0.0:
+    dev: false
+    optionalDependencies:
+      graceful-fs: 4.1.11
+    resolution:
+      integrity: sha1-h3Gq4HmbZAdrdmQPygWPnBDjPss=
+  /tslib/1.9.3:
+    dev: false
+    resolution:
+      integrity: sha512-4krF8scpejhaOgqzBEcGM7yDIEfi0/8+8zDRZhNZZ2kjmHJ4hv3zCbQWxoJGz1iw5U0Jl0nma13xzHXcncMavQ==
+  /unique-temp-path/0.1.1:
+    dependencies:
+      '@types/node': 10.10.1
+      tslib: 1.9.3
+    dev: false
+    engines:
+      node: '>= 8.9.0'
+    hasBin: true
+    resolution:
+      integrity: sha512-hYlBbvWrpY5sitojnCwIuWH8FNx7CzNyGqG+CbxRDOe3ehqrPmMRj3D2jy3/6C35+VbRBUVy6f2o29y3SyJ/ag==
+  /universalify/0.1.2:
+    dev: false
+    engines:
+      node: '>= 4.0.0'
+    resolution:
+      integrity: sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==
+registry: 'https://registry.npmjs.org/'
+shrinkwrapMinorVersion: 9
+shrinkwrapVersion: 3
+specifiers:
+  '@types/fs-extra': ^5.0.4
+  '@types/node': ^10.10.3
+  fs-extra: ^7.0.0
+  tslib: ^1.9.3
+  unique-temp-path: ^0.1.1

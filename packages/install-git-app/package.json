@@ -1,0 +1,22 @@
+{
+  "name": "install-git-app",
+  "version": "0.0.0",
+  "description": "Install application from git urls",
+  "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/nodejs-monorepo-templates/typescript-monorepo.git#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodejs-monorepo-templates/typescript-monorepo.git.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nodejs-monorepo-templates/typescript-monorepo.git/issues"
+  },
+  "dependencies": {
+    "fs-extra": "^7.0.0",
+    "tslib": "^1.9.3",
+    "unique-temp-path": "^0.1.1",
+    "@types/fs-extra": "^5.0.4",
+    "@types/node": "^10.10.3"
+  }
+}
