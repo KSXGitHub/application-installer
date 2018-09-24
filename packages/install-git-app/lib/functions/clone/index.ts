@@ -1,5 +1,6 @@
 import { spawn } from 'child_process'
 import temp from 'unique-temp-path'
+import { CloneError } from '../../classes'
 
 function clone (source: string): Promise<string> {
   const destination = temp('install-git-app.')
@@ -14,7 +15,7 @@ function clone (source: string): Promise<string> {
   return new Promise((resolve, reject) => {
     child.on('close', (status, signal) => {
       if (status) {
-        reject(new clone.CloneError({
+        reject(new CloneError({
           stdout,
           stderr,
           status,
@@ -25,28 +26,6 @@ function clone (source: string): Promise<string> {
       }
     })
   })
-}
-
-namespace clone {
-  export class CloneError extends Error {
-    readonly info: CloneError.Info
-
-    constructor (info: CloneError.Info) {
-      const signal = info.signal ? ` "${info.signal}"` : ''
-      const stderr = info.stderr ? ` ${info.stderr}` : ''
-      super(`Failed to clone: [status: ${info.status}${signal}]${stderr}`)
-      this.info = info
-    }
-  }
-
-  export namespace CloneError {
-    export interface Info {
-      readonly stdout: string
-      readonly stderr: string
-      readonly status: number
-      readonly signal: string | null
-    }
-  }
 }
 
 export = clone

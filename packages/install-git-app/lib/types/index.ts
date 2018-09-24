@@ -18,3 +18,18 @@ export namespace InstallFunc {
     readonly destination: string
   }
 }
+
+export namespace Error {
+  export namespace SpawnError {
+    export interface Info {
+      readonly stdout: string
+      readonly stderr: string
+      readonly status: number
+      readonly signal: string | null
+    }
+  }
+
+  export namespace CloneError {
+    export interface Info extends SpawnError.Info {}
+  }
+}

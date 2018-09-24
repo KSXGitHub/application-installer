@@ -1,3 +1,4 @@
 import install from './install'
 import clone from './clone'
-export { install, clone }
+import currentCommit from './current-commit'
+export { install, clone, currentCommit }
