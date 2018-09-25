@@ -1,6 +1,7 @@
 dependencies:
   '@types/fs-extra': 5.0.4
   '@types/node': 10.10.3
+  advanced-spawn-async: 0.0.1
   fs-extra: 7.0.0
   tslib: 1.9.3
   unique-temp-path: 0.1.1
@@ -19,6 +20,17 @@ packages:
     dev: false
     resolution:
       integrity: sha512-dWk7F3b0m6uDLHero7tsnpAi9r2RGPQHGbb0/VCv7DPJRMFtk3RonY1/29vfJKnheRMBa7+uF+vunlg/mBGlxg==
+  /@types/node/10.11.0:
+    dev: false
+    resolution:
+      integrity: sha512-R4Dvw6KjSYn/SpvjRchBOwXr14vVVcFXCtnM3f0aLvlJS8a599rrcEoihcP2/+Z/f75E5GNPd4aWM7j1yei9og==
+  /advanced-spawn-async/0.0.1:
+    dependencies:
+      '@types/node': 10.11.0
+      tslib: 1.9.3
+    dev: false
+    resolution:
+      integrity: sha512-EsKb2UZs11vA8KtsnOb+XJMH3MaSt7Yh7DCp5Rd64xcqrwXyEbUOTY85w8YI/ek7/3rNEHpB/8z/DfUfNjy/mQ==
   /fs-extra/7.0.0:
     dependencies:
       graceful-fs: 4.1.11
@@ -67,6 +79,7 @@ shrinkwrapVersion: 3
 specifiers:
   '@types/fs-extra': ^5.0.4
   '@types/node': ^10.10.3
+  advanced-spawn-async: ^0.0.1
   fs-extra: ^7.0.0
   tslib: ^1.9.3
   unique-temp-path: ^0.1.1

@@ -1,4 +1,11 @@
 import install from './install'
 import clone from './clone'
 import currentCommit from './current-commit'
-export { install, clone, currentCommit }
+import spawnGit from './spawn-git'
+
+export {
+  install,
+  clone,
+  currentCommit,
+  spawnGit
+}

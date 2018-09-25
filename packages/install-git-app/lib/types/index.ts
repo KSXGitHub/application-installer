@@ -1,3 +1,5 @@
+import { Options as SpawnOptions } from 'advanced-spawn-async'
+
 export interface Param {
   readonly repo: string
   readonly destination: string
@@ -31,5 +33,11 @@ export namespace Error {
 
   export namespace CloneError {
     export interface Info extends SpawnError.Info {}
+  }
+}
+
+export namespace SpawnGit {
+  export interface Options extends SpawnOptions {
+    readonly cwd: string
   }
 }
