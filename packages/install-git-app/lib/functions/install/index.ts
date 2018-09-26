@@ -7,7 +7,7 @@ async function install (param: Param): Promise<void> {
   const {
     destination,
     repo,
-    install = () => {},
+    install = () => undefined,
     path: subpath = '.'
   } = param
 
