@@ -13,15 +13,13 @@ export interface InstallFunc {
 
 export namespace InstallFunc {
   export interface Param {
-    readonly repo: Param.Repo
+    readonly clone: Param.Repo
     readonly path: string
-    readonly localRepo: string
-    readonly localPath: string
     readonly destination: string
   }
 
   export namespace Param {
-    export type Repo = GitClone.Options
+    export type Repo = GitClone.Return
   }
 }
 
@@ -56,5 +54,12 @@ export namespace GitClone {
     readonly checkout?: string
     readonly cwd?: string
     readonly extra?: string[]
+  }
+
+  export interface Return extends Options {
+    readonly destination: string
+    readonly ref: string
+    readonly cwd: string
+    readonly extra: string[]
   }
 }

@@ -3,7 +3,7 @@ import { GitClone } from '../../types'
 import spawnGit from '../spawn-git'
 import { normalizeCloneParam } from '../normalize'
 
-async function clone (param: GitClone.Param): Promise<string> {
+async function clone (param: GitClone.Param): Promise<GitClone.Return> {
   const {
     source,
     branch,
@@ -30,7 +30,16 @@ async function clone (param: GitClone.Param): Promise<string> {
     await spawnGit(['checkout', checkout], destination)
   }
 
-  return destination
+  return {
+    destination,
+    source,
+    branch,
+    checkout,
+    depth,
+    cwd,
+    extra,
+    ref: checkout || branch || 'master'
+  }
 }
 
 export = clone

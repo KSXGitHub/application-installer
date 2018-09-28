@@ -2,7 +2,6 @@ import path from 'path'
 import { copy, remove } from 'fs-extra'
 import { Param } from '../../types'
 import clone from '../clone'
-import { normalizeCloneParam } from '../normalize'
 
 async function install (param: Param): Promise<void> {
   const {
@@ -13,24 +12,22 @@ async function install (param: Param): Promise<void> {
   } = param
 
   const [
-    localRepo
+    cloneReturn
   ] = await Promise.all([
     clone(repo),
     remove(destination)
   ])
 
-  const localPath = path.resolve(localRepo, subpath)
+  const localPath = path.resolve(cloneReturn.destination, subpath)
   await copy(localPath, destination)
 
   await install({
     destination,
-    localPath,
-    localRepo,
     path: subpath,
-    repo: normalizeCloneParam(repo)
+    clone: cloneReturn
   })
 
-  await remove(localRepo)
+  await remove(cloneReturn.destination)
 }
 
 export = install
