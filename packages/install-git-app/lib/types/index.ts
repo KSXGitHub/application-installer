@@ -1,7 +1,7 @@
 import { Options as SpawnOptions } from 'advanced-spawn-async'
 
 export interface Param {
-  readonly repo: string
+  readonly repo: string | GitClone.Options
   readonly destination: string
   readonly path?: string
   readonly install?: InstallFunc
@@ -13,7 +13,7 @@ export interface InstallFunc {
 
 export namespace InstallFunc {
   export interface Param {
-    readonly repo: string
+    readonly repo: GitClone.Options
     readonly path: string
     readonly localRepo: string
     readonly localPath: string

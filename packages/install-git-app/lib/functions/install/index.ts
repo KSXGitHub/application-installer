@@ -26,7 +26,7 @@ async function install (param: Param): Promise<void> {
     localPath,
     localRepo,
     path: subpath,
-    repo
+    repo: typeof repo === 'string' ? { source: repo } : repo
   })
 
   await remove(localRepo)
