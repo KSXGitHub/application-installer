@@ -9,3 +9,5 @@ export {
   currentCommit,
   spawnGit
 }
+
+export * from './normalize'

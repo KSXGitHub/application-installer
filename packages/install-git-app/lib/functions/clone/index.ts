@@ -1,10 +1,9 @@
 import temp from 'unique-temp-path'
 import { GitClone } from '../../types'
 import spawnGit from '../spawn-git'
+import { normalizeCloneParam } from '../normalize'
 
-async function clone (param: string | GitClone.Options): Promise<string> {
-  if (typeof param === 'string') return clone({source: param})
-
+async function clone (param: GitClone.Param): Promise<string> {
   const {
     source,
     branch,
@@ -12,7 +11,7 @@ async function clone (param: string | GitClone.Options): Promise<string> {
     depth,
     cwd = '/',
     extra = []
-  } = param
+  } = normalizeCloneParam(param)
 
   const destination = temp('install-git-app.')
 

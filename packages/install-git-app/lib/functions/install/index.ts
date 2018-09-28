@@ -2,6 +2,7 @@ import path from 'path'
 import { copy, remove } from 'fs-extra'
 import { Param } from '../../types'
 import clone from '../clone'
+import { normalizeCloneParam } from '../normalize'
 
 async function install (param: Param): Promise<void> {
   const {
@@ -26,7 +27,7 @@ async function install (param: Param): Promise<void> {
     localPath,
     localRepo,
     path: subpath,
-    repo: typeof repo === 'string' ? { source: repo } : repo
+    repo: normalizeCloneParam(repo)
   })
 
   await remove(localRepo)

@@ -13,11 +13,15 @@ export interface InstallFunc {
 
 export namespace InstallFunc {
   export interface Param {
-    readonly repo: GitClone.Options
+    readonly repo: Param.Repo
     readonly path: string
     readonly localRepo: string
     readonly localPath: string
     readonly destination: string
+  }
+
+  export namespace Param {
+    export type Repo = GitClone.Options
   }
 }
 
@@ -43,6 +47,8 @@ export namespace SpawnGit {
 }
 
 export namespace GitClone {
+  export type Param = string | Options
+
   export interface Options {
     readonly source: string
     readonly depth?: number
