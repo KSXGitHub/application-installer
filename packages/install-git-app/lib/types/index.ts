@@ -41,3 +41,14 @@ export namespace SpawnGit {
     readonly cwd: string
   }
 }
+
+export namespace GitClone {
+  export interface Options {
+    readonly source: string
+    readonly depth?: number
+    readonly branch?: string
+    readonly checkout?: string
+    readonly cwd?: string
+    readonly extra?: string[]
+  }
+}
