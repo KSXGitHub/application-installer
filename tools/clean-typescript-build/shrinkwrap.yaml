@@ -4,16 +4,6 @@ dependencies:
 packages:
   /@types/fs-extra/5.0.4:
     dependencies:
-<<<<<<< HEAD
-      '@types/node': 10.10.3
-    dev: false
-    resolution:
-      integrity: sha512-DsknoBvD8s+RFfSGjmERJ7ZOP1HI0UZRA3FSI+Zakhrc/Gy26YQsLI+m5V5DHxroHRJqCDLKJp7Hixn8zyaF7g==
-  /@types/node/10.10.3:
-    dev: false
-    resolution:
-      integrity: sha512-dWk7F3b0m6uDLHero7tsnpAi9r2RGPQHGbb0/VCv7DPJRMFtk3RonY1/29vfJKnheRMBa7+uF+vunlg/mBGlxg==
-=======
       '@types/node': 10.11.1
     dev: false
     resolution:
@@ -22,22 +12,14 @@ packages:
     dev: false
     resolution:
       integrity: sha512-Mash7eQv0HOs/fBVywUGR7NLSXyMl3XHkIo/kcWBgD9ppwPYOp8UDFxZfKy9hWeVHT2p+69vgXTPbPpoeqoM8w==
->>>>>>> cc4d605b13a2eeff625bf94c511fe68464e23697
   /@types/ramda/0.25.38:
     dev: false
     resolution:
       integrity: sha512-6vkbUF1cg9CIaeZiSvbk6e25rOBbXBXixiZiV4Eai4WgwrmI3wBaH/TKE0tp9JEfzQFrv3eOoI0EjdBJaUfnIQ==
-<<<<<<< HEAD
   /@types/yargs/12.0.0:
     dev: false
     resolution:
       integrity: sha512-GTSFHeTWamRTKaApG47hgWsZWrjsw6PJSfrgntA9WAXKFUvjHi6Evf2JL0NkZNIKIX1Xi5wtV9sXMNJSC/O3Tw==
-=======
-  /@types/yargs/11.1.2:
-    dev: false
-    resolution:
-      integrity: sha512-zG61PAp2OcoIBjRV44wftJj6AJgzJrOc32LCYOBqk9bdgcdzK5DCJHV9QZJ60+Fu+fOn79g8Ks3Gixm4CfkZ+w==
->>>>>>> cc4d605b13a2eeff625bf94c511fe68464e23697
   /ansi-regex/2.1.1:
     dev: false
     engines:
@@ -59,15 +41,9 @@ packages:
   /clean-typescript-build/0.0.6:
     dependencies:
       '@types/fs-extra': 5.0.4
-<<<<<<< HEAD
-      '@types/node': 10.10.3
-      '@types/ramda': 0.25.38
-      '@types/yargs': 12.0.0
-=======
       '@types/node': 10.11.1
       '@types/ramda': 0.25.38
-      '@types/yargs': 11.1.2
->>>>>>> cc4d605b13a2eeff625bf94c511fe68464e23697
+      '@types/yargs': 12.0.0
       fs-extra: 7.0.0
       fs-tree-utils: 0.1.5
       ramda: 0.25.0
@@ -148,11 +124,7 @@ packages:
   /fs-tree-utils/0.1.5:
     dependencies:
       '@types/fs-extra': 5.0.4
-<<<<<<< HEAD
-      '@types/node': 10.10.3
-=======
       '@types/node': 10.11.1
->>>>>>> cc4d605b13a2eeff625bf94c511fe68464e23697
       '@types/ramda': 0.25.38
       fs-extra: 7.0.0
       monorepo-shared-assets: 0.0.16
@@ -264,11 +236,7 @@ packages:
       integrity: sha512-jf84uxzwiuiIVKiOLpfYk7N46TSy8ubTonmneY9vrpHNAnp0QBt2BxWV9dO3/j+BoVAb+a5G6YDPW3M5HOdMWQ==
   /monorepo-shared-assets/0.0.16:
     dependencies:
-<<<<<<< HEAD
-      '@types/node': 10.10.3
-=======
       '@types/node': 10.11.1
->>>>>>> cc4d605b13a2eeff625bf94c511fe68464e23697
       '@types/ramda': 0.25.38
       immutable: 3.8.2
       ramda: 0.25.0
@@ -324,10 +292,7 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-nJRWmJ6fZYgBewQ01WCXZ1w9oF4=
-<<<<<<< HEAD
-=======
       tarball: 'http://registry.npmjs.org/p-is-promise/-/p-is-promise-1.1.0.tgz'
->>>>>>> cc4d605b13a2eeff625bf94c511fe68464e23697
   /p-limit/2.0.0:
     dependencies:
       p-try: 2.0.0
