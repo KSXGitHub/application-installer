@@ -27,7 +27,7 @@ async function clone (param: GitClone.Param): Promise<GitClone.Return> {
   await spawnGit(argv, cwd).onclose
 
   if (checkout) {
-    await spawnGit(['checkout', checkout], destination)
+    await spawnGit(['checkout', checkout], destination).onclose
   }
 
   return {
