@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "dependencies": {
+    "install-git-app": "file:../../packages/install-git-app"
+  }
+}

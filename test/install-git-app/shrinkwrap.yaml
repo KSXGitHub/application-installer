@@ -1,0 +1,7 @@
+dependencies:
+  install-git-app: 'link:../../packages/install-git-app'
+registry: 'https://registry.npmjs.org/'
+shrinkwrapMinorVersion: 9
+shrinkwrapVersion: 3
+specifiers:
+  install-git-app: '*'
