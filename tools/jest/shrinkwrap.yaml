@@ -1,15 +1,23 @@
 dependencies:
   '@tools/places': 'link:../places'
   babel-jest: 23.6.0
+<<<<<<< HEAD
   convenient-typescript-utilities: 0.0.2
   create-jest-runner: 0.4.1
   fast-deep-equal: 2.0.1
   jest: 23.6.0
   parse-dependency-range: 0.0.2
+=======
+  convenient-typescript-utilities: 0.0.1
+  create-jest-runner: 0.4.0
+  fast-deep-equal: 2.0.1
+  jest: 23.6.0
+  parse-dependency-range: 0.0.1
+>>>>>>> cc4d605b13a2eeff625bf94c511fe68464e23697
   semver: 5.5.1
   ts-jest: 23.10.1
   tslib: 1.9.3
-  typescript: 3.0.3
+  typescript: 3.1.1
   yaml-jest: 1.0.5
 packages:
   /@babel/code-frame/7.0.0:
@@ -26,10 +34,17 @@ packages:
     dev: false
     resolution:
       integrity: sha512-UFMC4ZeFC48Tpvj7C8UgLvtkaUuovQX+5xNWrsIoMG8o2z+XFKjKaN9iVmS84dPwVN00W4wPmqvYoZF3EGAsfw==
+<<<<<<< HEAD
   /@types/node/10.10.3:
     dev: false
     resolution:
       integrity: sha512-dWk7F3b0m6uDLHero7tsnpAi9r2RGPQHGbb0/VCv7DPJRMFtk3RonY1/29vfJKnheRMBa7+uF+vunlg/mBGlxg==
+=======
+  /@types/node/10.11.1:
+    dev: false
+    resolution:
+      integrity: sha512-Mash7eQv0HOs/fBVywUGR7NLSXyMl3XHkIo/kcWBgD9ppwPYOp8UDFxZfKy9hWeVHT2p+69vgXTPbPpoeqoM8w==
+>>>>>>> cc4d605b13a2eeff625bf94c511fe68464e23697
   /@types/semver/5.5.0:
     dev: false
     resolution:
@@ -610,6 +625,7 @@ packages:
   /combined-stream/1.0.7:
     dependencies:
       delayed-stream: 1.0.0
+<<<<<<< HEAD
     dev: false
     engines:
       node: '>= 0.8'
@@ -619,6 +635,17 @@ packages:
     dev: false
     optional: true
     resolution:
+=======
+    dev: false
+    engines:
+      node: '>= 0.8'
+    resolution:
+      integrity: sha512-brWl9y6vOB1xYPZcpZde3N9zDByXTosAeMDo4p1wzo6UMOX4vumB+TP1RZ76sfE6Md68Q0NJSrE/gbezd4Ul+w==
+  /commander/2.17.1:
+    dev: false
+    optional: true
+    resolution:
+>>>>>>> cc4d605b13a2eeff625bf94c511fe68464e23697
       integrity: sha512-wPMUt6FnH2yzG95SA6mzjQOEKUU3aLaDEmzs1ti+1E9h+CsrZghRlqEM/EJ4KscsQVG8uNN4uVreUeT8+drlgg==
   /component-emitter/1.2.1:
     dev: false
@@ -630,13 +657,21 @@ packages:
       integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=
   /convenient-typescript-utilities/0.0.2:
     dependencies:
+<<<<<<< HEAD
       '@types/node': 10.10.3
+=======
+      '@types/node': 10.11.1
+>>>>>>> cc4d605b13a2eeff625bf94c511fe68464e23697
       tslib: 1.9.3
     dev: false
     engines:
       node: '>= 8.9.0'
     resolution:
+<<<<<<< HEAD
       integrity: sha512-EHaJmmr+j9Dn4Hdv+X1XACugJ2NeToifdINS/LjuPgVyZW2ka+2Xi0P5tJC4ve7LbdijgI7EplqxzmGVMO2huQ==
+=======
+      integrity: sha512-MnpMgVHF5IZPGOdYUVvD72iwLAi7f1Sv5LlwUuusp9IvjvXwWnQi8lRAja6HOLlQlPpMw2niz2av9EBVHbplEQ==
+>>>>>>> cc4d605b13a2eeff625bf94c511fe68464e23697
   /convert-source-map/1.6.0:
     dependencies:
       safe-buffer: 5.1.2
@@ -2559,7 +2594,11 @@ packages:
       integrity: sha1-y8ec26+P1CKOE/Yh8rGiN8GyB7M=
   /parse-dependency-range/0.0.2:
     dependencies:
+<<<<<<< HEAD
       '@types/node': 10.10.3
+=======
+      '@types/node': 10.11.1
+>>>>>>> cc4d605b13a2eeff625bf94c511fe68464e23697
       '@types/semver': 5.5.0
       convenient-typescript-utilities: 0.0.2
       semver: 5.5.1
@@ -2646,6 +2685,7 @@ packages:
     dev: false
     engines:
       node: '>=0.10.0'
+<<<<<<< HEAD
     resolution:
       integrity: sha1-7RQaasBDqEnqWISY59yosVMw6Qw=
   /pinkie-promise/2.0.1:
@@ -2661,6 +2701,23 @@ packages:
     engines:
       node: '>=0.10.0'
     resolution:
+=======
+    resolution:
+      integrity: sha1-7RQaasBDqEnqWISY59yosVMw6Qw=
+  /pinkie-promise/2.0.1:
+    dependencies:
+      pinkie: 2.0.4
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-ITXW36ejWMBprJsXh3YogihFD/o=
+  /pinkie/2.0.4:
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+>>>>>>> cc4d605b13a2eeff625bf94c511fe68464e23697
       integrity: sha1-clVrgM+g1IqXToDnckjoDtT3+HA=
   /pkg-dir/2.0.0:
     dependencies:
@@ -3395,13 +3452,17 @@ packages:
       node: '>= 0.8.0'
     resolution:
       integrity: sha1-WITKtRLPHTVeP7eE8wgEsrUg23I=
-  /typescript/3.0.3:
+  /typescript/3.1.1:
     dev: false
     engines:
       node: '>=4.2.0'
     hasBin: true
     resolution:
+<<<<<<< HEAD
       integrity: sha512-kk80vLW9iGtjMnIv11qyxLqZm20UklzuR2tL0QAnDIygIUIemcZMxlMWudl9OOt76H3ntVzcTiddQ1/pAAJMYg==
+=======
+      integrity: sha512-Veu0w4dTc/9wlWNf2jeRInNodKlcdLgemvPsrNpfu5Pq39sgfFjvIIgTsvUHCoLBnMhPoUA+tFxsXjU6VexVRQ==
+>>>>>>> cc4d605b13a2eeff625bf94c511fe68464e23697
   /uglify-js/3.4.9:
     dependencies:
       commander: 2.17.1

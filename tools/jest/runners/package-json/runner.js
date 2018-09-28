@@ -26,8 +26,11 @@ function main ({ testPath }) {
   const mustBePrivate = rule(() => !manifest.private, 'Must have field "private" set to true')
   const mustBePublic = rule(() => 'private' in manifest, 'Must not have field "private"')
 
+  const getDependencyPath = (name, ...args) =>
+    path.resolve(container, 'node_modules', name, ...args)
+
   const isPrivateDependency = name => {
-    const dependencyManifestPath = path.resolve(container, 'node_modules', name, 'package.json')
+    const dependencyManifestPath = getDependencyPath(name, 'package.json')
     const dependencyManifest = require(dependencyManifestPath)
     return dependencyManifest.private
   }
@@ -36,6 +39,14 @@ function main ({ testPath }) {
     ? {
       local () {},
       semver: {
+        ifLocal (name) {
+          const shortpath = getDependencyPath(name)
+          const realpath = fs.realpathSync(shortpath)
+          const dirname = path.dirname(realpath)
+          if ([places.packages, places.tools].includes(dirname)) {
+            reasons.push(`Expecting local package to use 'file:' but received semver: ${name}`)
+          }
+        },
         ifPrivate (name) {
           if (isPrivateDependency(name)) {
             reasons.push(`Private dependencies should use "file:" protocol: ${name}`)
@@ -48,6 +59,7 @@ function main ({ testPath }) {
         reasons.push(`Local dependencies should not be listed in "dependencies": ${name}`)
       },
       semver: {
+        ifLocal () {},
         ifPrivate (name) {
           if (isPrivateDependency(name)) {
             reasons.push(`Public package should not use private dependencies: ${name}`)
@@ -75,6 +87,7 @@ function main ({ testPath }) {
 
       switch (parsedVersion.type) {
         case depRange.Type.Semver: {
+          treatDependency.semver.ifLocal(name)
           treatDependency.semver.ifPrivate(name)
 
           {
@@ -82,7 +95,7 @@ function main ({ testPath }) {
               actualName !== name || !semver.satisfies(version, range)
 
             const message = () =>
-              `Expected ${name}@${range} (${field}) but received ${actualName}@${version} (node_modules)`
+              `Expecting ${name}@${range} (${field}) but received ${actualName}@${version} (node_modules)`
 
             pushif(condition, message)
           }
@@ -98,7 +111,7 @@ function main ({ testPath }) {
             const condition = expected !== received
 
             const message = () =>
-              `Expected ${name} ("${range}") to be at "${expected}" but received "${received}" instead`
+              `Expecting ${name} ("${range}") to be at "${expected}" but received "${received}" instead`
 
             pushif(condition, message)
           }
@@ -109,7 +122,7 @@ function main ({ testPath }) {
             const condition = expected !== received
 
             const message = () =>
-              `Expected "${expected}" as protocol but received "${received}" instead`
+              `Expecting "${expected}" as protocol but received "${received}" instead`
 
             pushif(condition, message)
           }
@@ -187,7 +200,7 @@ function main ({ testPath }) {
 
     if (manifest.name !== containerBaseName) {
       reasons.push(
-        `Expected package's name to be "${containerBaseName}" but received "${manifest.name}" instead`
+        `Expecting package's name to be "${containerBaseName}" but received "${manifest.name}" instead`
       )
     }
 
@@ -226,7 +239,7 @@ function main ({ testPath }) {
     const expectedName = `@tools/${containerBaseName}`
     if (manifest.name !== expectedName) {
       reasons.push(
-        `Expected package's name to be "${expectedName}" but received "${manifest.name}" instead`
+        `Expecting package's name to be "${expectedName}" but received "${manifest.name}" instead`
       )
     }
 
