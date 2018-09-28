@@ -28,6 +28,8 @@ async function install (param: Param): Promise<void> {
     path: subpath,
     repo
   })
+
+  await remove(localRepo)
 }
 
 export = install
