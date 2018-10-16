@@ -1,6 +1,6 @@
 dependencies:
   '@types/fs-extra': 5.0.4
-  '@types/node': 10.10.3
+  '@types/node': 10.11.7
   advanced-spawn-async: 0.0.1
   fs-extra: 7.0.0
   tslib: 1.9.3
@@ -8,25 +8,17 @@ dependencies:
 packages:
   /@types/fs-extra/5.0.4:
     dependencies:
-      '@types/node': 10.10.1
+      '@types/node': 10.11.7
     dev: false
     resolution:
       integrity: sha512-DsknoBvD8s+RFfSGjmERJ7ZOP1HI0UZRA3FSI+Zakhrc/Gy26YQsLI+m5V5DHxroHRJqCDLKJp7Hixn8zyaF7g==
-  /@types/node/10.10.1:
+  /@types/node/10.11.7:
     dev: false
     resolution:
-      integrity: sha512-nzsx28VwfaIykfzMAG9TB3jxF5Nn+1/WMKnmVZc8TsB+LMIVvwUscVn7PAq+LFaY5ng5u4jp5mRROSswo76PPA==
-  /@types/node/10.10.3:
-    dev: false
-    resolution:
-      integrity: sha512-dWk7F3b0m6uDLHero7tsnpAi9r2RGPQHGbb0/VCv7DPJRMFtk3RonY1/29vfJKnheRMBa7+uF+vunlg/mBGlxg==
-  /@types/node/10.11.0:
-    dev: false
-    resolution:
-      integrity: sha512-R4Dvw6KjSYn/SpvjRchBOwXr14vVVcFXCtnM3f0aLvlJS8a599rrcEoihcP2/+Z/f75E5GNPd4aWM7j1yei9og==
+      integrity: sha512-yOxFfkN9xUFLyvWaeYj90mlqTJ41CsQzWKS3gXdOMOyPVacUsymejKxJ4/pMW7exouubuEeZLJawGgcNGYlTeg==
   /advanced-spawn-async/0.0.1:
     dependencies:
-      '@types/node': 10.11.0
+      '@types/node': 10.11.7
       tslib: 1.9.3
     dev: false
     resolution:
@@ -59,7 +51,7 @@ packages:
       integrity: sha512-4krF8scpejhaOgqzBEcGM7yDIEfi0/8+8zDRZhNZZ2kjmHJ4hv3zCbQWxoJGz1iw5U0Jl0nma13xzHXcncMavQ==
   /unique-temp-path/0.1.1:
     dependencies:
-      '@types/node': 10.10.1
+      '@types/node': 10.11.7
       tslib: 1.9.3
     dev: false
     engines:
@@ -78,7 +70,7 @@ shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
   '@types/fs-extra': ^5.0.4
-  '@types/node': ^10.10.3
+  '@types/node': ^10.11.3
   advanced-spawn-async: ^0.0.1
   fs-extra: ^7.0.0
   tslib: ^1.9.3

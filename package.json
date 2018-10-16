@@ -2,29 +2,39 @@
   "private": true,
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/nodejs-monorepo-templates/typescript-monorepo.git#readme",
+  "homepage": "https://github.com/nodejs-monorepo-templates/typescript-monorepo#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nodejs-monorepo-templates/typescript-monorepo.git.git"
+    "url": "git+https://github.com/nodejs-monorepo-templates/typescript-monorepo.git"
   },
   "bugs": {
-    "url": "https://github.com/nodejs-monorepo-templates/typescript-monorepo.git/issues"
+    "url": "https://github.com/nodejs-monorepo-templates/typescript-monorepo/issues"
   },
   "devDependencies": {
-    "toolcheck": "^0.0.3",
-    "@types/jest": "^23.3.1",
-    "@types/node": "^10.9.4"
+    "standard": "^12.0.1",
+    "tslint": "^5.11.0",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.1.1",
+    "toolcheck": "^0.0.5",
+    "@types/jest": "^23.3.2",
+    "@types/node": "^10.11.3"
   },
   "scripts": {
-    "console": "node tools/console/bin.js",
+    "mismatches": "bash scripts/mismatches.sh",
+    "repl": "node tools/repl/bin.js",
+    "console": "node tools/repl/bin.js",
     "preloaded-node": "node tools/preloaded-node/bin.js",
+    "monorepo": "node tools/monorepo/bin",
     "standardjs": "bash scripts/standardjs.sh",
     "standardjs:fix": "bash scripts/standardjs.sh --fix",
     "tslint": "bash scripts/tslint.sh",
     "tslint:fix": "bash scripts/tslint.sh --fix",
     "test": "bash scripts/test.sh",
     "build": "bash scripts/build.sh",
-    "clean-typescript-build": "node tools/clean-typescript-build/bin.js"
+    "clean": "bash scripts/clean.sh",
+    "clean-typescript-build": "node tools/clean-typescript-build/bin.js",
+    "prepublishOnly": "bash scripts/prepublish.sh",
+    "postpublish": "bash scripts/postpublish.sh"
   },
   "standard": {
     "env": {
