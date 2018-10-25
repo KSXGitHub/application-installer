@@ -1,19 +1,14 @@
 dependencies:
   '@tools/places': 'link:../places'
+  '@types/yargs': 12.0.1
   chalk: 2.4.1
-  exec-inline: 0.0.1
+  git-ts: 0.0.5
   nested-workspace-helper: 0.2.6
-  number-enum: 3.0.0
+  yargs: 12.0.2
 packages:
-  /@babel/runtime/7.1.2:
-    dependencies:
-      regenerator-runtime: 0.12.1
-    dev: false
-    resolution:
-      integrity: sha512-Y3SCjmhSupzFB6wcv1KmmFucH6gDVnI30WjOcicV10ju0cZjak3Jcs67YLIXBrmZYw1xCrVeJPbycFwrqNyxpg==
   /@types/fs-extra/5.0.4:
     dependencies:
-      '@types/node': 10.11.7
+      '@types/node': 10.12.0
     dev: false
     resolution:
       integrity: sha512-DsknoBvD8s+RFfSGjmERJ7ZOP1HI0UZRA3FSI+Zakhrc/Gy26YQsLI+m5V5DHxroHRJqCDLKJp7Hixn8zyaF7g==
@@ -23,14 +18,14 @@ packages:
       integrity: sha512-JRDtMPEqXrzfuYAdqbxLot1GvAr/QvicIZAnOAigZaj8xVMhuSJTg/xsv9E1TvyL+wujYhRLx9ZsQ0oFOSmwyA==
   /@types/node-fetch/2.1.2:
     dependencies:
-      '@types/node': 10.11.7
+      '@types/node': 10.12.0
     dev: false
     resolution:
       integrity: sha512-XroxUzLpKuL+CVkQqXlffRkEPi4Gh3Oui/mWyS7ztKiyqVxiU+h3imCW5I2NQmde5jK+3q++36/Q96cyRWsweg==
-  /@types/node/10.11.7:
+  /@types/node/10.12.0:
     dev: false
     resolution:
-      integrity: sha512-yOxFfkN9xUFLyvWaeYj90mlqTJ41CsQzWKS3gXdOMOyPVacUsymejKxJ4/pMW7exouubuEeZLJawGgcNGYlTeg==
+      integrity: sha512-3TUHC3jsBAB7qVRGxT6lWyYo2v96BMmD2PTcl47H25Lu7UXtFH/2qqmKiVrnel6Ne//0TFYf6uvNX+HW2FRkLQ==
   /@types/ramda/0.25.39:
     dev: false
     resolution:
@@ -93,14 +88,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-4FG+RSG9DL7uEwRUZXZn3SS34DiDPfzP0VOiEwtUWlE+AR2EIg+hSyvrIgUUfhdgR/UkAeW2QHgeP+hWrXs7jQ==
-  /clone-regexp/2.1.0:
-    dependencies:
-      is-regexp: 2.0.0
-    dev: false
-    engines:
-      node: '>=6'
-    resolution:
-      integrity: sha512-Ujn//SX3jg4duyQGM37swl+Sk95zmQnraZO0fGVZQEq1fJJML8mJaEkbT70ns/kBcdU7HLzpF8VJUmsb1lDD8Q==
   /code-point-at/1.1.0:
     dev: false
     engines:
@@ -137,10 +124,6 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-Ikpp5scV3MSYxY39ymh45ZLEecsTdv/Xj2CaQfI8RLMuwi7XvjX9H/fhraiSuU+C5w5NTDu4ZU72xNiZnurBPg==
-  /dequeue/1.0.5:
-    dev: false
-    resolution:
-      integrity: sha1-EPHO8H4yNLIdyzj0v6LWYDSrZ8c=
   /escape-string-regexp/1.0.5:
     dev: false
     engines:
@@ -154,15 +137,6 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-eGuFFw7Upda+g4p+QHvnW0RyTX/SVeJBDM/gCtMARO0cLuT2HcEKnTPvhjV6aGeqrCB/sbNop0Kszm0jsaWU4A==
-  /exec-inline/0.0.1:
-    dependencies:
-      '@types/node': 10.11.7
-      tslib: 1.9.3
-    dev: false
-    engines:
-      node: '>= 8.9.0'
-    resolution:
-      integrity: sha512-81L/2VOB8DyHW/nrdHJ2qVb9HH4UgX0BdCDWzmjWgWnXwM13wErSNDOWsb13wXpzU+pfvAw/slqIJ8CKD9ETng==
   /execa/0.10.0:
     dependencies:
       cross-spawn: 6.0.5
@@ -198,7 +172,7 @@ packages:
   /fs-tree-utils/0.1.6:
     dependencies:
       '@types/fs-extra': 5.0.4
-      '@types/node': 10.11.7
+      '@types/node': 10.12.0
       '@types/ramda': 0.25.39
       fs-extra: 7.0.0
       monorepo-shared-assets: 0.0.17
@@ -219,7 +193,15 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-jpQ9E1jcN1VQVOy+LtsFqhdO3hQ=
-      tarball: 'http://registry.npmjs.org/get-stream/-/get-stream-3.0.0.tgz'
+  /git-ts/0.0.5:
+    dependencies:
+      '@types/node': 10.12.0
+      tslib: 1.9.3
+    dev: false
+    engines:
+      node: '>= 8.9.0'
+    resolution:
+      integrity: sha512-SMCEndUFlJDLwfDZKbn//adA4uNgSX+Ur9METy78aJUUGQ3a9xqkyPF2aG+nE6vNVFj3EHY1coOrh55ZKe8rjw==
   /graceful-fs/4.1.11:
     dev: false
     engines:
@@ -258,12 +240,6 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-o7MKXE8ZkYMWeqq5O+764937ZU8=
-  /is-regexp/2.0.0:
-    dev: false
-    engines:
-      node: '>=6'
-    resolution:
-      integrity: sha512-B5NGyyvXTmppdR/g7ei6cu5DXhvzBLNcajOXJ3OR1tmW39iiF7444beL1lQjL393j8vDOTWGnSV2r/5cKuNqkg==
   /is-stream/1.1.0:
     dev: false
     engines:
@@ -274,17 +250,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=
-  /iter-tools/6.1.4:
-    dependencies:
-      '@babel/runtime': 7.1.2
-      clone-regexp: 2.1.0
-      dequeue: 1.0.5
-      little-ds-toolkit: 1.1.0
-      typescript-tuple: 1.7.3
-      typescript-union: 0.0.0
-    dev: false
-    resolution:
-      integrity: sha512-MpUCYuPa7w8CzoHFWRycVsWBookzztSYjFaeYWHBUmumtuNWKtAbhUnAS+9tEku9GA961a8xa7CeH5Vm0+pQ5g==
   /js-yaml/3.12.0:
     dependencies:
       argparse: 1.0.10
@@ -307,10 +272,6 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-avPEb8P8EGnwXKClwsNUgryVjllcRqtMYa49NTsbQagYuT1DcXnl1915oxWjoyGrXR6zH/Y0Zc96xWsPcoDKeA==
-  /little-ds-toolkit/1.1.0:
-    dev: false
-    resolution:
-      integrity: sha512-2ARbmay5TrhFxFqcyFxPigmRToDuo8yxvIMdvwsDYNd/oZKnvsFT5L3I7s8WLXR7/tThYeffN9ouDtFFk4wzsA==
   /locate-path/3.0.0:
     dependencies:
       p-locate: 3.0.0
@@ -346,7 +307,7 @@ packages:
       integrity: sha512-jf84uxzwiuiIVKiOLpfYk7N46TSy8ubTonmneY9vrpHNAnp0QBt2BxWV9dO3/j+BoVAb+a5G6YDPW3M5HOdMWQ==
   /monorepo-shared-assets/0.0.17:
     dependencies:
-      '@types/node': 10.11.7
+      '@types/node': 10.12.0
       '@types/ramda': 0.25.39
       immutable: 3.8.2
       ramda: 0.25.0
@@ -360,7 +321,7 @@ packages:
     dependencies:
       '@types/fs-extra': 5.0.4
       '@types/js-yaml': 3.11.2
-      '@types/node': 10.11.7
+      '@types/node': 10.12.0
       '@types/node-fetch': 2.1.2
       '@types/ramda': 0.25.39
       '@types/semver': 5.5.0
@@ -399,14 +360,6 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-NakjLfo11wZ7TLLd8jV7GHFTbF8=
-  /number-enum/3.0.0:
-    dependencies:
-      iter-tools: 6.1.4
-    dev: false
-    engines:
-      node: '>= 8.9.0'
-    resolution:
-      integrity: sha512-y1YQ+1EXdFajhhUzobNBOhnKDbX57VRfwpeUIVR3mfWQeGKR3aR252Djs0nBAu71bHb3lFYyVpMOzT8xcZgB2w==
   /number-is-nan/1.0.1:
     dev: false
     engines:
@@ -441,7 +394,6 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-nJRWmJ6fZYgBewQ01WCXZ1w9oF4=
-      tarball: 'http://registry.npmjs.org/p-is-promise/-/p-is-promise-1.1.0.tgz'
   /p-limit/2.0.0:
     dependencies:
       p-try: 2.0.0
@@ -480,10 +432,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-GXpfrYVPwx3K7RQ6aYT8KPS8XViSXUVJT1ONhoKPE9VAleW42YE+U+8VEyGWt41EnEQW7gwecYJriTI0pKoecQ==
-  /regenerator-runtime/0.12.1:
-    dev: false
-    resolution:
-      integrity: sha512-odxIc1/vDlo4iZcfXqRYFj0vpXFNoGdKMAUieAlFYO6m/nl5e9KR/beGf41z4a1FI+aQgtjhuaSlDxQ0hmkrHg==
   /require-directory/2.1.1:
     dev: false
     engines:
@@ -552,7 +500,6 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-ajhfuIU9lS1f8F0Oiq+UJ43GPc8=
-      tarball: 'http://registry.npmjs.org/strip-ansi/-/strip-ansi-3.0.1.tgz'
   /strip-ansi/4.0.0:
     dependencies:
       ansi-regex: 3.0.0
@@ -579,33 +526,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-4krF8scpejhaOgqzBEcGM7yDIEfi0/8+8zDRZhNZZ2kjmHJ4hv3zCbQWxoJGz1iw5U0Jl0nma13xzHXcncMavQ==
-  /typescript-tuple/1.7.3:
-    dev: false
-    engines:
-      typescript: ^3.0.0
-    resolution:
-      integrity: sha512-ygCTfD6CX5ul+J0sZhq2MSouMNAeJpRXAFkYPUZomv457KWg15DuS7n+ubv15LtbX27iVo6DkuiX/5yyNdBvVg==
-  /typescript-union/0.0.0:
-    dependencies:
-      typescript-tuple: 1.7.3
-      utility-types: 2.1.0
-    dev: false
-    peerDependencies:
-      typescript: '>= 3.0.0'
-    resolution:
-      integrity: sha512-sWOTNcTOXw27cJhfvjSbxrKggb4XD+fPIFkjIqqnycdVqStj/3IR3QVEMZOheWY5ELGS3PCwuHFDVWAbK9UHvA==
   /universalify/0.1.2:
     dev: false
     engines:
       node: '>= 4.0.0'
     resolution:
       integrity: sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==
-  /utility-types/2.1.0:
-    dev: false
-    engines:
-      node: '>= 4'
-    resolution:
-      integrity: sha512-/nP2gqavggo6l38rtQI/CdeV+2fmBGXVvHgj9kV2MAnms3TIi77Mz9BtapPFI0+GZQCqqom0vACQ+VlTTaCovw==
   /which-module/2.0.0:
     dev: false
     resolution:
@@ -626,7 +552,6 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-2Pw9KE3QV5T+hJc8rs3Rz4JP3YU=
-      tarball: 'http://registry.npmjs.org/wrap-ansi/-/wrap-ansi-2.1.0.tgz'
   /xregexp/4.0.0:
     dev: false
     resolution:
@@ -663,7 +588,8 @@ shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
   '@tools/places': 'file:../places'
+  '@types/yargs': ^12.0.1
   chalk: ^2.4.1
-  exec-inline: ^0.0.1
+  git-ts: ^0.0.5
   nested-workspace-helper: ^0.2.6
-  number-enum: ^3.0.0
+  yargs: ^12.0.2
