@@ -19,5 +19,11 @@
     "unique-temp-path": "^0.1.1",
     "@types/fs-extra": "^5.0.4",
     "@types/node": "^10.12.0"
-  }
+  },
+  "peerDependencies": {
+    "require-external-programs": "^0.0.1"
+  },
+  "requireExternalPrograms": [
+    "git"
+  ]
 }
