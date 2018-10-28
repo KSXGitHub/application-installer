@@ -17,11 +17,9 @@
     "tslib": "^1.9.3",
     "advanced-spawn-async": "^0.0.1",
     "unique-temp-path": "^0.1.1",
+    "require-external-programs": "^0.0.6",
     "@types/fs-extra": "^5.0.4",
     "@types/node": "^10.12.0"
-  },
-  "peerDependencies": {
-    "require-external-programs": "^0.0.1"
   },
   "requireExternalPrograms": [
     "git"
