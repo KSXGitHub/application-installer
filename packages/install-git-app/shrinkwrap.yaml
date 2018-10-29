@@ -3,7 +3,7 @@ dependencies:
   '@types/node': 10.12.0
   advanced-spawn-async: 0.0.1
   fs-extra: 7.0.0
-  require-external-programs: 0.0.6
+  require-external-programs: 0.0.7
   tslib: 1.9.3
   unique-temp-path: 0.1.1
 packages:
@@ -344,31 +344,31 @@ packages:
     dev: false
     resolution:
       integrity: sha512-odxIc1/vDlo4iZcfXqRYFj0vpXFNoGdKMAUieAlFYO6m/nl5e9KR/beGf41z4a1FI+aQgtjhuaSlDxQ0hmkrHg==
-  /require-external-programs-bin/0.0.5:
+  /require-external-programs-bin/0.0.6:
     dependencies:
       '@types/node': 10.12.0
-      require-external-programs-utils: 0.0.5
+      require-external-programs-utils: 0.0.6
       tslib: 1.9.3
     dev: false
     engines:
       node: '>= 8.9.0'
     hasBin: true
     resolution:
-      integrity: sha512-GDGkQUdo2SLVSuJpAs1IaroLQmkaVEm1spqMtJ9K5LvynQr5zJIEIuRCFGLy2korBagsHd4UYN2/akJYhyZrBg==
-  /require-external-programs-db/0.0.5:
+      integrity: sha512-NikopjBz13C8tPnyn0q7RygHVSMthOIn1UHMgI5z29LqkM0IS9wQ6weQo/4XB32DJ/czFrwCVupMbpiiGgp9Dw==
+  /require-external-programs-db/0.0.6:
     dependencies:
       '@types/node': 10.12.0
       '@types/which': 1.3.1
       cached-expression: 0.0.1
-      require-external-programs-lib: 0.0.5
+      require-external-programs-lib: 0.0.6
       tslib: 1.9.3
       which: 1.3.1
     dev: false
     engines:
       node: '>= 8.9.0'
     resolution:
-      integrity: sha512-4pzMYPZAU35btJvJTg18t87EqKQYUCF38uvGspeC/4f3tYVmcj1DpjN7STOnVjjXeKhLs2NQIyiJIPEPI5cS+A==
-  /require-external-programs-lib/0.0.5:
+      integrity: sha512-0tucpufe7kJBV6vCJM2G/EtavMQve+t5oAJjuy6UBetvFbXLOz0uRz64KER0ULRjwozLSMZip9eZYNTr/dQERg==
+  /require-external-programs-lib/0.0.6:
     dependencies:
       '@types/fs-extra': 5.0.4
       '@types/node': 10.12.0
@@ -383,33 +383,33 @@ packages:
     engines:
       node: '>= 8.9.0'
     resolution:
-      integrity: sha512-C76Y1KiqHYd/cvv356XzkK0uVtvrX7kN/H5YQ08uw1+bOLXncP1Qbnp3aPYTgEQ+wAtdOO5LOVdjhqj7YpGwhA==
-  /require-external-programs-utils/0.0.5:
+      integrity: sha512-d54urGvzhLTH+KMJKM5JvSFiPjnBbgTdClgfu8dXg/m/+Mes3fSN5Lzfpfblu+SeeVwsVf0TxWxysVFzdUqJtA==
+  /require-external-programs-utils/0.0.6:
     dependencies:
       '@types/node': 10.12.0
       '@types/which': 1.3.1
       advanced-map-initialized: 0.0.2
       chalk: 2.4.1
-      require-external-programs-db: 0.0.5
-      require-external-programs-lib: 0.0.5
+      require-external-programs-db: 0.0.6
+      require-external-programs-lib: 0.0.6
       tslib: 1.9.3
     dev: false
     engines:
       node: '>= 8.9.0'
     resolution:
-      integrity: sha512-zvv9jEGQ6jjRhDFn+H68RjsKFy6Q144atzVSrGrT/wPB2vXDscnBfj/owdJ8065yFpSF338zXrXggNK/h1rwQA==
-  /require-external-programs/0.0.6:
+      integrity: sha512-Gz4HHujyva2L1xn4Jbu1IAehvK0QqWRTIikDilFyNfCFLkb0Qp1X+WosCyYpa+7E8xLodzoWFPfhK+sBeA3i7Q==
+  /require-external-programs/0.0.7:
     dependencies:
       '@types/node': 10.12.0
       just-try: 2.1.0
-      require-external-programs-bin: 0.0.5
+      require-external-programs-bin: 0.0.6
       tslib: 1.9.3
     dev: false
     engines:
       node: '>= 8.9.0'
     requiresBuild: true
     resolution:
-      integrity: sha512-PwzMzdeATc8m0IVhT0iBEp/JAVj5Awrsj2NlQewIBN2Q9U3ERY/6paf1+ZnLvoqcGvxFMTSNc125bUkELMWvQA==
+      integrity: sha512-7P5XJnlUcs7z111gTNAd5tjDB0LUaJxnWFeXrjW5dHBkonWN69sA9xroNs09vH6IE9w2uVpI9E+g/YHrKYeMUQ==
   /semver/5.6.0:
     dev: false
     hasBin: true
@@ -493,6 +493,6 @@ specifiers:
   '@types/node': ^10.12.0
   advanced-spawn-async: ^0.0.1
   fs-extra: ^7.0.0
-  require-external-programs: ^0.0.6
+  require-external-programs: ^0.0.7
   tslib: ^1.9.3
   unique-temp-path: ^0.1.1
